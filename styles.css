@@ -450,9 +450,22 @@ h3 {
 .split-section,
 .contact-layout,
 .policy-copy {
-  max-width: var(--max);
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: var(--section-space) var(--gutter);
+}
+
+.section,
+.split-section,
+.contact-layout,
+.policy-copy {
+  min-height: clamp(560px, 78vh, 860px);
+}
+
+.section {
+  display: grid;
+  align-content: center;
 }
 
 .why-section {
@@ -464,6 +477,7 @@ h3 {
   grid-template-columns: 0.55fr 1fr;
   gap: clamp(32px, 6vw, 72px);
   align-items: start;
+  width: 100%;
   margin-bottom: clamp(44px, 6vw, 66px);
 }
 
@@ -510,7 +524,7 @@ h3 {
 }
 
 .services-preview .section-heading {
-  max-width: var(--max);
+  max-width: none;
   margin-left: auto;
   margin-right: auto;
 }
@@ -809,6 +823,9 @@ h3 {
 
 .fee-band {
   max-width: none;
+  min-height: clamp(420px, 58vh, 680px);
+  display: grid;
+  align-content: center;
   padding: clamp(48px, 7vw, 84px) var(--gutter);
   background: var(--green);
   color: var(--white);
@@ -1026,7 +1043,7 @@ h3 {
   display: grid;
   grid-template-columns: minmax(260px, 1.3fr) repeat(3, minmax(150px, 0.7fr));
   gap: clamp(36px, 6vw, 76px);
-  max-width: var(--max);
+  max-width: none;
   margin: 0 auto;
 }
 
@@ -1094,7 +1111,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  max-width: var(--max);
+  max-width: none;
   margin: clamp(38px, 5vw, 58px) auto 0;
   padding-top: 22px;
   border-top: 1px solid var(--green);
