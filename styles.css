@@ -25,6 +25,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: var(--body-size);
   line-height: 1.68;
+  overflow-x: hidden;
 }
 
 main {
@@ -129,7 +130,7 @@ a {
   gap: 0;
   align-items: stretch;
   max-width: none;
-  min-height: calc(100vh - 87px);
+  min-height: calc(100vh - 205px);
   margin: 0;
   padding: 0;
 }
@@ -138,13 +139,14 @@ a {
   position: relative;
   display: grid;
   align-content: center;
-  min-height: calc(100vh - 87px);
-  padding: clamp(84px, 10vw, 142px) var(--gutter) clamp(72px, 9vw, 112px);
+  min-width: 0;
+  min-height: calc(100vh - 205px);
+  padding: clamp(46px, 7vw, 88px) var(--gutter) clamp(42px, 6vw, 74px);
 }
 
 .hero-copy::before {
   position: absolute;
-  top: -42px;
+  top: -30px;
   left: 0;
   width: 96px;
   height: 3px;
@@ -159,6 +161,7 @@ a {
   font-weight: 700;
   letter-spacing: 0;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 h1,
@@ -172,8 +175,8 @@ h3 {
 }
 
 h1 {
-  max-width: 860px;
-  font-size: clamp(3.4rem, 7vw, 7rem);
+  max-width: min(860px, 100%);
+  font-size: clamp(3.1rem, 5.6vw, 5.8rem);
 }
 
 h2 {
@@ -194,8 +197,8 @@ h3 {
 }
 
 .hero-copy p:not(.eyebrow) {
-  max-width: 620px;
-  margin: 28px 0 0;
+  max-width: min(620px, 100%);
+  margin: 22px 0 0;
   font-size: var(--lead-size);
 }
 
@@ -233,7 +236,7 @@ h3 {
   flex-wrap: wrap;
   align-items: center;
   gap: 18px 28px;
-  margin-top: 34px;
+  margin-top: 28px;
 }
 
 .hero-actions .button {
@@ -280,10 +283,46 @@ h3 {
   font-size: 1rem;
 }
 
+.credibility-band {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: var(--green);
+  color: var(--white);
+}
+
+.credibility-band div {
+  display: grid;
+  align-content: center;
+  min-height: clamp(210px, 28vh, 320px);
+  padding: clamp(34px, 5vw, 60px) var(--gutter);
+  background: var(--green);
+}
+
+.credibility-band span {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+.credibility-band p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--white);
+  font-size: var(--lead-size);
+}
+
 .hero-panel {
   display: grid;
   gap: 0;
   grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 0;
   background: var(--white);
   border: 0;
 }
@@ -345,7 +384,7 @@ h3 {
 }
 
 .hero-stats div {
-  padding: clamp(24px, 4vw, 38px);
+  padding: clamp(14px, 2vw, 22px);
   background: var(--white);
 }
 
@@ -353,13 +392,14 @@ h3 {
   display: block;
   color: var(--green);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.2rem, 4vw, 3.7rem);
+  font-size: clamp(1.8rem, 2.8vw, 2.75rem);
   line-height: 1;
 }
 
 .hero-panel p {
   max-width: 260px;
-  margin: 12px 0 0;
+  margin: 8px 0 0;
+  line-height: 1.32;
 }
 
 .intro-strip {
@@ -373,7 +413,7 @@ h3 {
 
 .intro-strip p {
   margin: 0;
-  padding: 22px clamp(16px, 3vw, 30px);
+  padding: clamp(18px, 2vw, 24px) clamp(16px, 3vw, 30px);
   color: var(--green);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.08rem, 1.7vw, 1.4rem);
@@ -1175,20 +1215,33 @@ h3 {
 }
 
 .candidate-lower {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  background: var(--grey);
+  gap: clamp(32px, 7vw, 86px);
+  min-height: clamp(360px, 52vh, 560px);
+  background: var(--green);
+  color: var(--white);
 }
 
 .candidate-lower h2 {
   margin-bottom: 18px;
+  color: var(--white);
 }
 
 .candidate-lower p:not(.eyebrow) {
-  max-width: 680px;
+  max-width: 760px;
   margin: 0;
+  color: var(--white);
+  font-size: var(--lead-size);
+}
+
+.candidate-lower .eyebrow {
+  color: var(--white);
+}
+
+.candidate-lower .button {
+  margin-top: 0;
 }
 
 .image-split {
@@ -1400,6 +1453,14 @@ h3 {
     min-height: 460px;
   }
 
+  .credibility-band {
+    grid-template-columns: 1fr;
+  }
+
+  .credibility-band div {
+    min-height: auto;
+  }
+
   .audience-card,
   .audience-card-dark,
   .image-split {
@@ -1454,7 +1515,7 @@ h3 {
 
   .candidate-lower {
     align-items: flex-start;
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .footer-inner {
@@ -1483,7 +1544,8 @@ h3 {
   }
 
   h1 {
-    font-size: clamp(3rem, 14vw, 4.35rem);
+    font-size: clamp(2.45rem, 10vw, 3rem);
+    line-height: 1.08;
   }
 
   h2 {
@@ -1492,6 +1554,18 @@ h3 {
 
   .hero-copy {
     padding-top: 66px;
+  }
+
+  .hero-copy .eyebrow {
+    max-width: 32ch;
+  }
+
+  .hero-copy p:not(.eyebrow) {
+    max-width: 32ch;
+  }
+
+  .hero-copy .fee-note {
+    max-width: 28ch;
   }
 
   .hero-copy p:not(.eyebrow) {
@@ -1556,6 +1630,11 @@ h3 {
   .intro-strip p {
     padding-top: 18px;
     padding-bottom: 18px;
+  }
+
+  .credibility-band div {
+    padding-top: 44px;
+    padding-bottom: 44px;
   }
 
   .section-heading {
