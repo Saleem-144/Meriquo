@@ -57,7 +57,7 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 0;
   color: var(--green);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 2rem;
@@ -66,14 +66,10 @@ a {
 }
 
 .brand img {
-  width: 54px;
-  height: 54px;
+  width: auto;
+  height: 64px;
   object-fit: contain;
   object-position: center;
-}
-
-.brand span {
-  transform: translateY(1px);
 }
 
 .site-nav {
@@ -1576,7 +1572,7 @@ h3 {
 }
 
 .site-footer img {
-  width: 150px;
+  width: 170px;
   margin-bottom: 24px;
   background: var(--white);
 }
@@ -2267,8 +2263,8 @@ h3 {
   }
 
   .brand img {
-    width: 44px;
-    height: 44px;
+    width: auto;
+    height: 50px;
   }
 
   .brand {
