@@ -196,6 +196,15 @@ h3 {
   font-size: clamp(1.08rem, 1.4vw, 1.22rem);
 }
 
+.fee-note {
+  color: var(--green) !important;
+  font-weight: 700;
+}
+
+.fee-note-light {
+  color: var(--white) !important;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -412,6 +421,10 @@ h3 {
   color: var(--white);
 }
 
+.candidate-mini {
+  min-height: 320px;
+}
+
 .section,
 .page-hero,
 .split-section,
@@ -485,6 +498,10 @@ h3 {
   max-width: none;
   margin-left: calc(var(--gutter) * -1);
   margin-right: calc(var(--gutter) * -1);
+}
+
+.two-card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .preview-card {
@@ -668,9 +685,27 @@ h3 {
 
 .service-row ul {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   margin: 18px 0 0;
   padding-left: 20px;
+}
+
+.fee-band {
+  max-width: none;
+  padding: clamp(48px, 7vw, 84px) var(--gutter);
+  background: var(--green);
+  color: var(--white);
+}
+
+.fee-band h2,
+.fee-band .eyebrow {
+  color: var(--white);
+}
+
+.fee-band p {
+  max-width: 720px;
+  margin-left: 0;
 }
 
 .service-row li::marker {
@@ -824,6 +859,10 @@ h3 {
   font-weight: 700;
 }
 
+.contact-form label span {
+  font-weight: 400;
+}
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -970,6 +1009,53 @@ h3 {
 .text-columns p {
   margin: 0;
   font-size: 1.08rem;
+}
+
+.tag-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--green);
+  border: 1px solid var(--green);
+}
+
+.tag-grid span {
+  display: grid;
+  min-height: 96px;
+  place-items: center;
+  padding: 18px;
+  background: var(--white);
+  color: var(--green);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  text-align: center;
+}
+
+.candidate-process {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.candidate-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.candidate-lower {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  background: var(--grey);
+}
+
+.candidate-lower h2 {
+  margin-bottom: 18px;
+}
+
+.candidate-lower p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 0;
 }
 
 .image-split {
@@ -1196,6 +1282,9 @@ h3 {
   .process-grid,
   .text-columns,
   .preview-grid,
+  .two-card-grid,
+  .tag-grid,
+  .candidate-info-grid,
   .industry-strip,
   .intro-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1211,6 +1300,11 @@ h3 {
   }
 
   .cta-strip {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .candidate-lower {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -1291,9 +1385,16 @@ h3 {
   .process-grid,
   .text-columns,
   .preview-grid,
+  .two-card-grid,
+  .tag-grid,
+  .candidate-info-grid,
   .industry-strip,
   .intro-strip,
   .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .service-row ul {
     grid-template-columns: 1fr;
   }
 

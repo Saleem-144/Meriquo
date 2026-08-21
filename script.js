@@ -45,6 +45,12 @@ const formNote = document.querySelector(".form-note");
 
 if (contactForm && formNote) {
   contactForm.addEventListener("submit", () => {
-    formNote.textContent = "Your email app will open with this message ready to send.";
+    if (contactForm.classList.contains("candidate-form")) {
+      formNote.textContent =
+        "Thanks for reaching out. We'll be in touch if there's an opportunity that could be a good fit.";
+      return;
+    }
+
+    formNote.textContent = "Thanks. Tell us what you're hiring for and we'll take it from there.";
   });
 }
