@@ -6,6 +6,8 @@
   --max: 1200px;
   --gutter: clamp(24px, 6vw, 88px);
   --section-space: clamp(76px, 10vw, 132px);
+  --body-size: clamp(1rem, 0.35vw + 0.94rem, 1.12rem);
+  --lead-size: clamp(1.08rem, 0.55vw + 0.98rem, 1.28rem);
 }
 
 * {
@@ -21,7 +23,8 @@ body {
   color: var(--black);
   background: var(--white);
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+  font-size: var(--body-size);
+  line-height: 1.68;
 }
 
 main {
@@ -76,7 +79,7 @@ a {
   display: flex;
   align-items: center;
   gap: clamp(18px, 3vw, 36px);
-  font-size: 0.9rem;
+  font-size: 0.96rem;
 }
 
 .site-nav a {
@@ -152,7 +155,7 @@ a {
 .eyebrow {
   margin: 0 0 22px;
   color: var(--green);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -170,15 +173,15 @@ h3 {
 
 h1 {
   max-width: 860px;
-  font-size: clamp(3.4rem, 7.25vw, 7.4rem);
+  font-size: clamp(3.4rem, 7vw, 7rem);
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: clamp(2.15rem, 3.6vw, 3.45rem);
 }
 
 h3 {
-  font-size: 1.45rem;
+  font-size: clamp(1.35rem, 1.2vw, 1.65rem);
 }
 
 .hero-copy p:not(.eyebrow),
@@ -187,13 +190,13 @@ h3 {
 .policy-copy p {
   max-width: 680px;
   color: var(--black);
-  font-size: 1.08rem;
+  font-size: var(--lead-size);
 }
 
 .hero-copy p:not(.eyebrow) {
   max-width: 620px;
   margin: 28px 0 0;
-  font-size: clamp(1.08rem, 1.4vw, 1.22rem);
+  font-size: var(--lead-size);
 }
 
 .fee-note {
@@ -209,12 +212,13 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
+  min-height: 54px;
   margin-top: 22px;
-  padding: 0 26px;
+  padding: 0 28px;
   border: 1px solid var(--green);
   background: var(--green);
   color: var(--white);
+  font-weight: 700;
   text-decoration: none;
   transition: background 180ms ease, color 180ms ease;
 }
@@ -237,13 +241,29 @@ h3 {
 }
 
 .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--green);
   font-weight: 700;
   text-decoration: none;
 }
 
+.text-link::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  margin-left: 12px;
+  background: currentColor;
+  transition: width 180ms ease;
+}
+
 .text-link:hover {
   text-decoration: underline;
+}
+
+.text-link:hover::after {
+  width: 42px;
 }
 
 .hero-trust {
@@ -257,7 +277,7 @@ h3 {
 
 .hero-trust span {
   color: var(--black);
-  font-size: 0.96rem;
+  font-size: 1rem;
 }
 
 .hero-panel {
@@ -303,7 +323,7 @@ h3 {
   margin-bottom: 12px;
   color: var(--white);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -356,7 +376,7 @@ h3 {
   padding: 22px clamp(16px, 3vw, 30px);
   color: var(--green);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-size: clamp(1.08rem, 1.7vw, 1.4rem);
   text-align: center;
 }
 
@@ -403,7 +423,7 @@ h3 {
 .audience-card p:not(.eyebrow) {
   max-width: 560px;
   margin: 0 0 24px;
-  font-size: 1.08rem;
+  font-size: var(--lead-size);
 }
 
 .audience-card .text-link {
@@ -445,6 +465,12 @@ h3 {
   gap: clamp(32px, 6vw, 72px);
   align-items: start;
   margin-bottom: clamp(44px, 6vw, 66px);
+}
+
+.section-intro {
+  max-width: 760px;
+  margin: calc(clamp(44px, 6vw, 66px) * -0.45) 0 clamp(34px, 5vw, 56px);
+  font-size: var(--lead-size);
 }
 
 .three-grid,
@@ -512,7 +538,7 @@ h3 {
   background: var(--white);
   color: var(--black);
   text-decoration: none;
-  transition: background 180ms ease, color 180ms ease;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .preview-card span {
@@ -530,6 +556,7 @@ h3 {
 .preview-card:hover {
   background: var(--green);
   color: var(--white);
+  transform: translateY(-4px);
 }
 
 .preview-card:hover h3,
@@ -663,6 +690,95 @@ h3 {
   gap: 1px;
   background: var(--green);
   border: 1px solid var(--grey);
+}
+
+.service-detail {
+  scroll-margin-top: 100px;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.executive-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.flip-card {
+  min-height: 340px;
+  perspective: 1200px;
+  outline: 0;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  transform-style: preserve-3d;
+  transition: transform 560ms ease;
+}
+
+.flip-card:hover .flip-inner,
+.flip-card:focus-within .flip-inner,
+.flip-card:focus .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  min-height: 340px;
+  padding: clamp(24px, 3vw, 34px);
+  border: 1px solid var(--green);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.flip-front {
+  background: var(--black);
+  color: var(--white);
+}
+
+.flip-front img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  opacity: 0.62;
+}
+
+.flip-front h3 {
+  position: relative;
+  color: var(--white);
+}
+
+.flip-back {
+  align-content: center;
+  background: var(--green);
+  color: var(--white);
+  transform: rotateY(180deg);
+}
+
+.flip-back h3 {
+  margin-bottom: 16px;
+  color: var(--white);
+}
+
+.flip-back p {
+  margin: 0;
+  font-size: var(--lead-size);
+}
+
+.flip-card:focus-visible .flip-inner {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
 }
 
 .service-row {
@@ -1008,7 +1124,7 @@ h3 {
 
 .text-columns p {
   margin: 0;
-  font-size: 1.08rem;
+  font-size: var(--lead-size);
 }
 
 .tag-grid {
@@ -1076,7 +1192,7 @@ h3 {
 .image-split p:not(.eyebrow) {
   max-width: 580px;
   margin: 0 0 18px;
-  font-size: 1.08rem;
+  font-size: var(--lead-size);
 }
 
 .image-split img {
@@ -1168,7 +1284,7 @@ h3 {
 
 .contact-note p:not(.eyebrow) {
   max-width: 680px;
-  font-size: 1.08rem;
+  font-size: var(--lead-size);
 }
 
 .reveal {
@@ -1191,6 +1307,19 @@ h3 {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .flip-inner {
+    transform: none !important;
+    transition: none;
+  }
+
+  .flip-face {
+    position: relative;
+  }
+
+  .flip-back {
+    transform: none;
   }
 }
 
@@ -1283,6 +1412,8 @@ h3 {
   .text-columns,
   .preview-grid,
   .two-card-grid,
+  .flip-grid,
+  .executive-grid,
   .tag-grid,
   .candidate-info-grid,
   .industry-strip,
@@ -1386,6 +1517,8 @@ h3 {
   .text-columns,
   .preview-grid,
   .two-card-grid,
+  .flip-grid,
+  .executive-grid,
   .tag-grid,
   .candidate-info-grid,
   .industry-strip,
