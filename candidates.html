@@ -169,7 +169,12 @@
           <a href="mailto:moe@meriquo.com">moe@meriquo.com</a>
         </div>
 
-        <form class="contact-form candidate-form reveal" action="mailto:moe@meriquo.com" method="post" enctype="multipart/form-data">
+        <form class="contact-form candidate-form reveal" action="https://formsubmit.co/moe@meriquo.com" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="New candidate introduction from Meriquo website" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.meriquo.com/candidates.html?submitted=true" />
+          <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" />
           <label>
             Name
             <input type="text" name="name" autocomplete="name" required />
@@ -179,8 +184,8 @@
             <input type="email" name="email" autocomplete="email" required />
           </label>
           <label>
-            Phone Number <span>optional</span>
-            <input type="tel" name="phone" autocomplete="tel" />
+            Phone Number
+            <input type="tel" name="phone" autocomplete="tel" placeholder="Optional" />
           </label>
           <label>
             Current / Most Recent Job Title
@@ -191,16 +196,16 @@
             <input type="text" name="area-of-expertise" required />
           </label>
           <label>
-            LinkedIn Profile <span>optional</span>
-            <input type="url" name="linkedin" />
+            LinkedIn Profile
+            <input type="url" name="linkedin" placeholder="Optional" />
           </label>
           <label>
-            Resume Upload <span>optional</span>
-            <input type="file" name="resume" />
+            Resume Upload
+            <input type="file" name="attachment" />
           </label>
           <label>
-            Message <span>optional</span>
-            <textarea name="message" rows="5"></textarea>
+            Message
+            <textarea name="message" rows="5" placeholder="Optional"></textarea>
           </label>
           <button class="button" type="submit">Connect With Meriquo</button>
           <p class="form-note" aria-live="polite"></p>

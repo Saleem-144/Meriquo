@@ -66,7 +66,12 @@
           <a href="https://www.linkedin.com/company/meriquo/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
 
-        <form class="contact-form employer-form reveal" action="mailto:moe@meriquo.com" method="post" enctype="text/plain">
+        <form class="contact-form employer-form reveal" action="https://formsubmit.co/moe@meriquo.com" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="New employer inquiry from Meriquo website" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.meriquo.com/contact.html?submitted=true" />
+          <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" />
           <label>
             Name
             <input type="text" name="name" autocomplete="name" required />
@@ -77,11 +82,11 @@
           </label>
           <label>
             Work Email
-            <input type="email" name="work-email" autocomplete="email" required />
+            <input type="email" name="email" autocomplete="email" required />
           </label>
           <label>
-            Phone Number <span>optional</span>
-            <input type="tel" name="phone" autocomplete="tel" />
+            Phone Number
+            <input type="tel" name="phone" autocomplete="tel" placeholder="Optional" />
           </label>
           <label>
             What are you hiring for?

@@ -737,16 +737,13 @@ h3 {
   padding: clamp(24px, 4vw, 36px);
 }
 
-.portrait-mark {
-  display: grid;
-  place-items: center;
-  width: 118px;
-  height: 118px;
+.founder-photo {
+  width: min(100%, 260px);
+  aspect-ratio: 1;
   margin-bottom: 28px;
-  background: var(--white);
-  color: var(--green);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 3rem;
+  border: 1px solid var(--white);
+  object-fit: cover;
+  object-position: center;
 }
 
 .founder-name {
@@ -1316,6 +1313,8 @@ h3 {
 
 .employer-contact-section {
   align-items: stretch;
+  grid-template-columns: minmax(380px, 0.95fr) minmax(520px, 1.05fr);
+  gap: clamp(28px, 4vw, 58px);
   background: var(--green);
 }
 
@@ -1341,10 +1340,10 @@ h3 {
 
 .employer-contact-points {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1px;
   margin: clamp(28px, 4vw, 42px) 0;
-  background: var(--white);
+  background: transparent;
   border: 1px solid var(--white);
 }
 
@@ -2082,6 +2081,84 @@ h3 {
 
   .flip-back {
     transform: none;
+  }
+}
+
+@media (min-width: 881px) and (max-width: 1320px) {
+  :root {
+    --gutter: clamp(44px, 5vw, 64px);
+    --section-space: clamp(64px, 7vw, 92px);
+    --lead-size: clamp(1rem, 0.35vw + 0.9rem, 1.12rem);
+  }
+
+  .site-header {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .brand img {
+    height: 56px;
+  }
+
+  .hero,
+  .hero-copy {
+    min-height: calc(100vh - 150px);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 4.7vw, 4.7rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(3rem, 4.6vw, 4.75rem);
+  }
+
+  .services-hero h1 {
+    max-width: 760px;
+    font-size: clamp(2.85rem, 4vw, 4.1rem);
+  }
+
+  .image-page-hero {
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  }
+
+  .image-page-hero > div,
+  .image-page-hero > img {
+    min-height: clamp(480px, 62vh, 620px);
+  }
+
+  .section,
+  .split-section,
+  .contact-layout,
+  .policy-copy {
+    min-height: clamp(500px, 70vh, 760px);
+  }
+
+  .section-heading {
+    margin-bottom: clamp(34px, 4.5vw, 54px);
+  }
+
+  .flip-card,
+  .flip-inner,
+  .flip-face {
+    min-height: clamp(285px, 36vh, 360px);
+  }
+
+  .process-step,
+  .candidate-step {
+    min-height: clamp(285px, 36vh, 360px);
+  }
+
+  .dual-cta-card {
+    min-height: clamp(330px, 44vh, 460px);
+  }
+
+  .contact-layout {
+    padding-top: var(--section-space);
   }
 }
 

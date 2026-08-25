@@ -44,6 +44,14 @@ const contactForm = document.querySelector(".contact-form");
 const formNote = document.querySelector(".form-note");
 
 if (contactForm && formNote) {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("submitted") === "true") {
+    formNote.textContent = contactForm.classList.contains("candidate-form")
+      ? "Thanks for reaching out. We'll be in touch if there's an opportunity that could be a good fit."
+      : "Thanks. Tell us what you're hiring for and we'll take it from there.";
+  }
+
   contactForm.addEventListener("submit", () => {
     if (contactForm.classList.contains("candidate-form")) {
       formNote.textContent =
