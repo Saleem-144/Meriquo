@@ -11,7 +11,9 @@ if (navToggle && siteNav) {
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 document.querySelectorAll(".site-nav a").forEach((link) => {
   const target = link.getAttribute("href");
-  if (target === currentPage || (currentPage === "" && target === "index.html")) {
+  const isHome = target === "/" && (currentPage === "" || currentPage === "index.html");
+
+  if (target === currentPage || isHome) {
     link.classList.add("active");
   }
 });
