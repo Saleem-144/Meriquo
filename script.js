@@ -8,12 +8,18 @@ if (navToggle && siteNav) {
   });
 }
 
-const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
 document.querySelectorAll(".site-nav a").forEach((link) => {
-  const target = link.getAttribute("href");
-  const isHome = target === "/" && (currentPage === "" || currentPage === "index.html");
+  const target = link.getAttribute("href") || "";
+  const targetPath = target.split("#")[0].replace(/\/$/, "") || "/";
+  const normalizedTarget = targetPath.endsWith(".html")
+    ? targetPath.replace(/\.html$/, "")
+    : targetPath;
+  const normalizedCurrent = currentPath.endsWith(".html")
+    ? currentPath.replace(/\/index\.html$/, "/").replace(/\.html$/, "")
+    : currentPath;
 
-  if (target === currentPage || isHome) {
+  if (normalizedTarget === normalizedCurrent) {
     link.classList.add("active");
   }
 });
